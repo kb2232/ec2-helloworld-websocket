@@ -1,0 +1,12 @@
+#totalreloads {
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid lightgray;
+}
+div #totalreloads {
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
