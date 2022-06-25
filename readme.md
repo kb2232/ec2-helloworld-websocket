@@ -13,4 +13,4 @@ Watch the video on each steps
 7. npm install
 8. node index.js
 
-change inbound rule to allow your instance to be accessed from port 3000 by your security group.
+change inbound rule to allow your instance to be accessed from port 3000 by anyone
