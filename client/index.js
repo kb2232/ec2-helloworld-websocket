@@ -1,4 +1,3 @@
-console.log({env: process.env.NODE_ENV})
 const ws = new WebSocket(`ws://18.206.174.170:9128/websocket`);
 ws.onopen = ()=> {
     console.log("server is open");
