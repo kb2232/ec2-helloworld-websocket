@@ -16,15 +16,18 @@ server.on("upgrade", async function upgrade(request, socket, head) {
     }
 
     wsconnect.handleUpgrade(request, socket, head, function done(ws) {
-        wsconnect.emit("connection", ws, request, [])
+        wsconnect.emit("connection", ws, request, [request.headers['user-agent']]);
+        //done(ws);
     });
 });
 let counter = 0;
-wsconnect.on("connection", function connection(ws){
+wsconnect.on("connection", function connection(ws, d){
+    console.log("======d===", d.headers['user-agent'])
+    const user = d.headers['user-agent'];
     counter = counter + 1;
     wsconnect.clients.forEach((client) => {
         if(client.readyState===Websocket.OPEN) {
-            client.send(counter);
+            client.send(JSON.stringify({counter, user}));
         }
     })
 });
